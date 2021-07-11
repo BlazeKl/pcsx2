@@ -14,6 +14,8 @@
  */
 
 #include "GS_types.h"
+#include <sstream>
+#include <string>
 
 class alignas(16) GSVector4i
 {
@@ -2181,4 +2183,10 @@ public:
 
 	__forceinline static GSVector4i xff(int n) { return m_xff[n]; }
 	__forceinline static GSVector4i x0f(int n) { return m_x0f[n]; }
+	std::string to_string_xyzw()
+	{
+		std::stringstream ss;
+		ss << "<" << x << "," << y << " => " << z << "," << w << ">";
+		return ss.str();
+	}
 };
